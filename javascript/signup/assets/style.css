@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(./images/pexels-photo-1379636.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    background: transparent;
+    color: white;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+button {
+    background: transparent;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 100%;  
+    margin-top: 10px;  
+    cursor: pointer;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.input > input, .input > select {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.input > input:focus, .input > select:focus {
+    outline: none;
+    border-color: darkblue;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+.error input, .error select {
+    border-color: red;
+}
