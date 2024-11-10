@@ -1,0 +1,117 @@
+<html>
+<head>
+    <title>Multi-tasking Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Multi-tasking Calculator</h1>
+
+
+    <div class="container">
+        <h2>Check Armstrong Number</h2>
+        <label for="armstrongNumber">Enter a number:</label>
+        <input type="number" id="armstrongNumber">
+        <button onclick="checkArmstrong()">Check</button>
+        <p id="armstrongResult"></p>
+    </div>
+
+    <!-- Square of N Numbers -->
+    <div class="container">
+        <h2>Calculate Square of N Numbers</h2>
+        <label for="numberList">Enter numbers separated by commas:</label>
+        <input type="text" id="numberList" placeholder="">
+        <button onclick="calculateSquares()">Calculate Squares</button>
+        <p id="squaresResult"></p>
+    </div>
+
+    <!-- Find Min and Max Value -->
+    <div class="container">
+        <h2>Find Minimum and Maximum Values</h2>
+        <label for="minMaxList">Enter numbers separated by commas:</label>
+        <input type="text" id="minMaxList" placeholder="">
+        <button onclick="findMinMax()">Find Min and Max</button>
+        <p id="minMaxResult"></p>
+    </div>
+
+    <script>
+        function checkArmstrong() {
+            const num = parseInt(document.getElementById('armstrongNumber').value);
+            const digits = num.toString().split('');
+            const numDigits = digits.length;
+            const sum = digits.reduce((acc, digit) => acc + Math.pow(parseInt(digit), numDigits), 0);
+
+            if (sum === num) {
+                document.getElementById('armstrongResult').innerText = num + ' is an Armstrong number.';
+            } else {
+                document.getElementById('armstrongResult').innerText = num + ' is not an Armstrong number.';
+            }
+        }
+
+        function calculateSquares() {
+            const numbers = document.getElementById('numberList').value.split(',').map(num => parseInt(num.trim()));
+            const squares = numbers.map(num => num * num);
+            document.getElementById('squaresResult').innerText = 'Squares: ' + squares.join(', ');
+        }
+
+        function findMinMax() {
+            const numbers = document.getElementById('minMaxList').value.split(',').map(num => parseInt(num.trim()));
+            const min = Math.min(...numbers);
+            const max = Math.max(...numbers);
+            document.getElementById('minMaxResult').innerText = 'Min: ' + min + ', Max: ' + max;
+        }
+    </script>
+
+</body>
+</html>
+
